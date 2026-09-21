@@ -1,0 +1,22 @@
+.digitBtn,
+.operatorBtn,
+.miscBtn {
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.digitBtn {
+    background-color: rgb(89, 88, 88);
+    color: white;
+}
+
+.operatorBtn {
+    background-color: rgb(212, 89, 80);
+    color: white;
+}
+
+.miscBtn {
+    background-color: rgb(140, 140, 140);
+    color: white;
+}
