@@ -118,3 +118,46 @@ percentBtn.addEventListener('click', () => {
         display.textContent = input;
     }
 });
+
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+
+    digitBtns.forEach(button => {
+        if (button.textContent === key) {
+            button.click();
+        }
+    });
+
+    operatorBtns.forEach(button => {
+        let calcKey = key;
+        if (key === '/') {
+            calcKey = '÷';
+        } else if (key === '*') {
+            calcKey = 'x';
+        }
+
+        if (button.textContent === calcKey) {
+            button.click();
+        }
+    });
+
+    if (key === 'Enter') {
+        equalBtn.click();
+    }
+
+    if (key === 'Backspace') {
+        deleteBtn.click();
+    }
+
+    if (key === 'Escape') {
+        clearBtn.click();
+    }
+
+    if (key === '.') {
+        decimalBtn.click();
+    }
+
+    if (key === '%') {
+        percentBtn.click();
+    }
+});
