@@ -3,7 +3,7 @@
 A working calculator built with HTML, CSS, and JavaScript as part of [The Odin Project](https://www.theodinproject.com/lessons/foundations-calculator) foundations course.
 
 ## Live Demo
-[View it live](#https://nathanjspriegel.github.io/calculator/)
+[View it live](https://nathanjspriegel.github.io/calculator/)
 
 ## What I practiced
 - Flexbox for layout
