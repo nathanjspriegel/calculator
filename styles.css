@@ -4,6 +4,7 @@
     width: 80px;
     height: 40px;
     font-size: 16px;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .digitBtn {
@@ -19,4 +20,34 @@
 .miscBtn {
     background-color: rgb(140, 140, 140);
     color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.mainButtons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 240px;
+}
+
+.operations {
+    display: flex;
+    flex-direction: column;
+}
+
+#calculator {
+    width: 320px;
+    background-color: rgb(55, 55, 55);
+    border: 5px solid rgb(55, 55, 55);
+}
+
+.display {
+    width: 320px;
+    height: 100px;
+    display: flex;
+    background-color: rgb(136, 136, 136);
 }
