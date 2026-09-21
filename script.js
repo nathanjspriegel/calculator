@@ -17,7 +17,11 @@ function operate(operator, a, b) {
         case 'x':
             return multiply(a, b);
         case '÷':
-            return divide(a, b);
+            if (b == 0) {
+                return "Error";
+            } else {
+                return divide(a, b);
+            }
         default:
             return "Error";
     }
@@ -29,13 +33,19 @@ const operatorBtns = document.querySelectorAll('.operatorBtn');
 const equalBtn = document.querySelector('#equalBtn');
 const deleteBtn = document.querySelector('#deleteBtn');
 const clearBtn = document.querySelector('#clearBtn');
-const decimal = document.querySelector('#decimalBtn');
-
+const decimalBtn = document.querySelector('#decimalBtn');
+const signBtn = document.querySelector('#signBtn');
+const percentBtn = document.querySelector('#percentBtn');
 
 let input = '';
+let calculated = false;
 
 digitBtns.forEach(button => {
     button.addEventListener('click', () => {
+        if (calculated) {
+            input = '';
+            calculated = false;
+        }
         input = input + button.textContent;
         display.textContent = input;
     });
@@ -47,6 +57,9 @@ operatorBtns.forEach(button => {
             a = Number(a);
             b = Number(input);
             let result = operate(operator, a, b);
+            if (result !== "Error") {
+                result = Math.round(result * 1000) / 1000;
+            }
             display.textContent = result;
             a = result;
         } else {
@@ -60,9 +73,16 @@ operatorBtns.forEach(button => {
 equalBtn.addEventListener("click", () => {
     a = Number(a);
     b = Number(input);
-    input = '';
     let result = operate(operator, a, b);
+    if (result !== "Error") {
+        result = Math.round(result * 1000) / 1000;
+        input = String(result);
+    } else {
+        input = '';
+    }
     display.textContent = result;
+    operator = '';
+    calculated = true;
 });
 
 deleteBtn.addEventListener('click', () => {
@@ -76,4 +96,25 @@ clearBtn.addEventListener('click', () => {
     input = '';
     operator = '';
     display.textContent = '';
+});
+
+decimalBtn.addEventListener('click', () => {
+    if (!input.includes('.')) {
+        input = input + decimalBtn.textContent;
+        display.textContent = input;
+    }
+});
+
+signBtn.addEventListener('click', () => {
+    if (input !== '') {
+        input = -1 * input;
+        display.textContent = input;
+    }
+});
+
+percentBtn.addEventListener('click', () => {
+    if (input !== '') {
+        input = input / 100;
+        display.textContent = input;
+    }
 });

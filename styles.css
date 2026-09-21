@@ -4,6 +4,8 @@
 }
 
 .digitBtn,
+#decimalBtn,
+#signBtn,
 .operatorBtn,
 .miscBtn,
 .equalBtn {
@@ -14,7 +16,9 @@
     border-radius: 5px;
 }
 
-.digitBtn {
+.digitBtn,
+#decimalBtn,
+#signBtn {
     background-color: rgb(89, 88, 88);
     color: white;
 }
